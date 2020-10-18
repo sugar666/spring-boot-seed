@@ -1,6 +1,5 @@
 package com.yangshu.seed.exception;
 
-import lombok.Data;
 import lombok.Getter;
 
 /**
