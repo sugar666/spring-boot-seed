@@ -1,5 +1,6 @@
 package com.yangshu.seed.exception;
 
+import com.yangshu.seed.enums.ResultEnum;
 import lombok.Getter;
 
 /**
@@ -14,6 +15,7 @@ public class BusinessException extends Exception {
 
     private Integer code;
     private String message;
+    private Object data;
 
 
     /**
@@ -24,10 +26,27 @@ public class BusinessException extends Exception {
      * @param message the detail message. The detail message is saved for
      *                later retrieval by the {@link #getMessage()} method.
      */
-    public BusinessException(Integer code, String message) {
+    public BusinessException(Integer code,String message,Object data) {
         super();
         this.code = code;
         this.message = message;
+        this.data = data;
+    }
 
+    public BusinessException(Integer code,String message) {
+        super();
+        this.code = code;
+        this.message = message;
+    }
+
+    public BusinessException(ResultEnum resultEnum) {
+        this.code = resultEnum.getCode();
+        this.message = resultEnum.getMessage();
+    }
+
+    public BusinessException(ResultEnum resultEnum,Object data) {
+        this.code = resultEnum.getCode();
+        this.message = resultEnum.getMessage();
+        this.data = data;
     }
 }

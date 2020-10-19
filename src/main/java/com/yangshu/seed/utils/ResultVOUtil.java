@@ -8,6 +8,7 @@ import com.yangshu.seed.enums.ResultEnum;
  * Description：工具类
  */
 public class ResultVOUtil {
+
     public static ResultVO<Object> success(Object obj){
         ResultVO<Object> res = new ResultVO<>();
         res.setCode(ResultEnum.SUCCESS.getCode());
@@ -27,17 +28,19 @@ public class ResultVOUtil {
         return resultVO;
     }
 
-//    public static ResultVO successCode(Integer code, String msg){
-//        ResultVO resultVO = new ResultVO();
-//        resultVO.setCode(code);
-//        resultVO.setMsg(msg);
-//        return resultVO;
-//    }
 
     public static ResultVO error(Integer code, String msg){
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(code);
         resultVO.setMsg(msg);
+        return resultVO;
+    }
+
+    public static ResultVO<Object> error(Integer code, String msg,Object data){
+        ResultVO<Object> resultVO = new ResultVO<>();
+        resultVO.setCode(code);
+        resultVO.setMsg(msg);
+        resultVO.setData(data);
         return resultVO;
     }
 
